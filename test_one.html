@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/test_style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="/test_script.js"></script>
+    <title>Test 1</title>
+</head>
+<body>
+    <div class="page_wrapper">
+        <div class="header_wrapper qst1_header">
+            <div class="question_text" id="qst1_text">Что означает понятие Иммерсивный/Immersive?</div>
+            <div class="question_description" id="qst1_desc">Выберите один ответ</div>
+        </div>
+        <div class="header_wrapper qst2_header">
+            <div class="question_text" id="qst2_text">В чём важнейшее отличие восприятия глазами от камеры?</div>
+            <div class="question_description" id="qst2_desc">Выберите один ответ</div>
+        </div>
+        <div class="header_wrapper qst3_header">
+            <div class="question_text" id="qst3_text">Самое критичное ограничение живописи</div>
+            <div class="question_description" id="qst3_desc">Выберите один ответ</div>
+        </div>
+        <div class="header_wrapper qst4_header">
+            <div class="question_text" id="qst4_text">Эффект иммерсивный в визуале это</div>
+            <div class="question_description" id="qst4_desc">Выберите один ответ</div>
+        </div>
+        <div class="header_wrapper qst5_header">
+            <div class="question_text" id="qst5_text">Главная цель</div>
+            <div class="question_description" id="qst5_desc">Выберите несколько ответов</div>
+        </div>
+        <div class="main_wrapper qst1_display">
+            <div class="answer_item" id="qst1_answ1">Погружающий зрителя</div>
+            <div class="answer_item" id="qst1_answ2">Ритмичный, динамичный</div>
+            <div class="answer_item" id="qst1_answ3">Обрамляющий</div>
+            <div class="answer_item" id="qst1_answ4">Осознанный, структурный</div>
+        </div>
+        <div class="main_wrapper qst2_display">
+            <div class="answer_item" id="qst2_answ1">FOV</div>
+            <div class="answer_item" id="qst2_answ2">Различимость/разрешение</div>
+            <div class="answer_item" id="qst2_answ3">Проекция света</div>
+            <div class="answer_item" id="qst2_answ4">Количество приёмников информации</div>
+        </div>
+        <div class="main_wrapper qst3_display">
+            <div class="answer_item" id="qst3_answ1">Детализация</div>
+            <div class="answer_item" id="qst3_answ2">Отсутствие параллаксов</div>
+            <div class="answer_item" id="qst3_answ3">Сложность реализации</div>
+            <div class="answer_item" id="qst3_answ4">Количество слоёв изображения</div>
+        </div>
+        <div class="main_wrapper qst4_display">
+            <div class="answer_item" id="qst4_answ1">Глубокая лёгкость</div>
+            <div class="answer_item" id="qst4_answ2">Наличие ракурсности</div>
+            <div class="answer_item" id="qst4_answ3">Использование дымки</div>
+            <div class="answer_item" id="qst4_answ4">Контрастность</div>
+        </div>
+        <div class="main_wrapper qst5_display">
+            <div class="answer_item" id="qst5_answ1">Сократить время на восприятие информации в кадре</div>
+            <div class="answer_item" id="qst5_answ2">Максимально подчеркнуть глубину</div>
+            <div class="answer_item" id="qst5_answ3">Использование дымки</div>
+            <div class="answer_item" id="qst5_answ4">Контрастность</div>
+        </div>
+        <div class="footer_wrapper">
+            <button class="next_question" id="next_question">Далее</button>
+        </div>
+    </div>
+    <div class="page_wrapper test_passed_window">
+        <div class="header_wrapper qst1_header">
+            <div class="question_text" id="question_text">Отлично, тест пройден! Вы можете продолжить своё обучение</div>
+            <div class="question_description" id="question_description">Нажмите кнопку в боте для продолжения</div>
+        </div>
+        <div class="main_wrapper">
+            
+        </div>
+        <div class="footer_wrapper">
+            <button class="back_to_bot_button" id="back_to_bot_button">Вернуться к Боту</button>
+        </div>
+    </div>
+    <div class="page_wrapper test_not_passed_window">
+        <div class="header_wrapper qst1_header">
+            <div class="question_text" id="question_text_not_passed">К сожалению тест не сдан. Вы можете попробовать ещё раз!</div>
+            <div class="question_description" id="question_description_not_passed">Вы сможете пропустить тест после 3ёх попыток</div>
+        </div>
+        <div class="main_wrapper">
+            
+        </div>
+        <div class="footer_wrapper">
+            <button class="restart_test_button" id="restart_test_button">Попробовать ещё раз</button>
+        </div>
+    </div>
+</body>
+</html>
