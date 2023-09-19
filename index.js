@@ -209,7 +209,7 @@ function watchUsersForVideo2RateChange() {
           res.sendFile(__dirname + '/video_two.html');
         });
 
-        const secondVideoLink = `https://${serverDomain}/video2/${userId}`;
+        const secondVideoLink = `${serverDomain}/video2/${userId}`;
 
         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
         await usersCollection.doc(userId).set({ secondVideoLink }, { merge: true });
@@ -229,7 +229,7 @@ function watchUsersForVideo3RateChange() {
           res.sendFile(__dirname + '/video_three.html');
         });
 
-        const thirdVideoLink = `https://${serverDomain}/video3/${userId}`;
+        const thirdVideoLink = `${serverDomain}/video3/${userId}`;
 
         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
         await usersCollection.doc(userId).set({ thirdVideoLink }, { merge: true });
@@ -249,7 +249,7 @@ function watchUsersForVideo4BtoARateChange() {
           res.sendFile(__dirname + '/video_four_B_A.html');
         });
 
-        const videoFourBtoALink = `https://${serverDomain}/video4BA/${userId}`;
+        const videoFourBtoALink = `${serverDomain}/video4BA/${userId}`;
 
         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
         await usersCollection.doc(userId).set({ videoFourBtoALink }, { merge: true });
@@ -269,7 +269,7 @@ function watchUsersForVideo4BtoPRateChange() {
           res.sendFile(__dirname + '/video_four_B_P.html');
         });
 
-        const videoFourBtoPLink = `https://${serverDomain}/video4BP/${userId}`;
+        const videoFourBtoPLink = `${serverDomain}/video4BP/${userId}`;
 
         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
         await usersCollection.doc(userId).set({ videoFourBtoPLink }, { merge: true });
