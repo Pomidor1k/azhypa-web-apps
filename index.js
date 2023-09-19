@@ -176,7 +176,7 @@ app.get("/video3/:userId", async (req, res) => {
 
 
 const usersCollection = db.collection("users");
-let serverDomain = "5.188.128.4:3000";
+let serverDomain = "https://azhypa-web-apps.onrender.com";
 
 function watchUsersForVideo1RateChange() {
   usersCollection.onSnapshot(snapshot => {
@@ -189,7 +189,7 @@ function watchUsersForVideo1RateChange() {
           res.sendFile(__dirname + '/video_one.html');
         });
 
-        const firstVideoLink = `https://${serverDomain}/video1/${userId}`;
+        const firstVideoLink = `${serverDomain}/video1/${userId}`;
 
         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
         await usersCollection.doc(userId).set({ firstVideoLink }, { merge: true });
