@@ -172,118 +172,138 @@ app.get("/video3/:userId", async (req, res) => {
   }
 });
 
+app.get("/video4BA/:userId", async (req, res) => {
+  const user = await db.collection("users").doc(req.params.userId).get();
+  if (user.exists) {
+    res.sendFile(__dirname + '/video_four_B_A.html');
+  } else {
+      res.status(404).send("User not found");
+  }
+});
+
+app.get("/video4BP/:userId", async (req, res) => {
+  const user = await db.collection("users").doc(req.params.userId).get();
+  if (user.exists) {
+    res.sendFile(__dirname + '/video_four_B_P.html');
+  } else {
+      res.status(404).send("User not found");
+  }
+});
 
 
 
-const usersCollection = db.collection("users");
-let serverDomain = "https://azhypa-web-apps.onrender.com";
 
-function watchUsersForVideo1RateChange() {
-  usersCollection.onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(async change => {
-      if (change.type === "modified" && change.doc.data().rate !== undefined) {
-        const userId = change.doc.id;
 
-        // Создание маршрута для первого видео
-        app.get(`/video1/${userId}`, (req, res) => {
-          res.sendFile(__dirname + '/video_one.html');
-        });
 
-        const firstVideoLink = `${serverDomain}/video1/${userId}`;
+//const usersCollection = db.collection("users");
+// let serverDomain = "https://azhypa-web-apps.onrender.com";
 
-        // Обновление или добавление ссылки для соответствующего пользователя в Firestore
-        await usersCollection.doc(userId).set({ firstVideoLink }, { merge: true });
-      }
-    });
-  });
-}
+// function watchUsersForVideo1RateChange() {
+//   usersCollection.onSnapshot(snapshot => {
+//     snapshot.docChanges().forEach(async change => {
+//       if (change.type === "modified" && change.doc.data().rate !== undefined) {
+//         const userId = change.doc.id;
 
-function watchUsersForVideo2RateChange() {
-  usersCollection.onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(async change => {
-      if (change.type === "modified" && change.doc.data().rate !== undefined) {
-        const userId = change.doc.id;
+//         // Создание маршрута для первого видео
+//         app.get(`/video1/${userId}`, (req, res) => {
+//           res.sendFile(__dirname + '/video_one.html');
+//         });
 
-        // Создание маршрута для второго видео
-        app.get(`/video2/${userId}`, (req, res) => {
-          res.sendFile(__dirname + '/video_two.html');
-        });
+//         const firstVideoLink = `${serverDomain}/video1/${userId}`;
 
-        const secondVideoLink = `${serverDomain}/video2/${userId}`;
+//         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
+//         await usersCollection.doc(userId).set({ firstVideoLink }, { merge: true });
+//       }
+//     });
+//   });
+// }
 
-        // Обновление или добавление ссылки для соответствующего пользователя в Firestore
-        await usersCollection.doc(userId).set({ secondVideoLink }, { merge: true });
-      }
-    });
-  });
-}
+// function watchUsersForVideo2RateChange() {
+//   usersCollection.onSnapshot(snapshot => {
+//     snapshot.docChanges().forEach(async change => {
+//       if (change.type === "modified" && change.doc.data().rate !== undefined) {
+//         const userId = change.doc.id;
 
-function watchUsersForVideo3RateChange() {
-  usersCollection.onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(async change => {
-      if (change.type === "modified" && change.doc.data().rate !== undefined) {
-        const userId = change.doc.id;
+//         // Создание маршрута для второго видео
+//         app.get(`/video2/${userId}`, (req, res) => {
+//           res.sendFile(__dirname + '/video_two.html');
+//         });
 
-        // Создание маршрута для третьего видео
-        app.get(`/video3/${userId}`, (req, res) => {
-          res.sendFile(__dirname + '/video_three.html');
-        });
+//         const secondVideoLink = `${serverDomain}/video2/${userId}`;
 
-        const thirdVideoLink = `${serverDomain}/video3/${userId}`;
+//         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
+//         await usersCollection.doc(userId).set({ secondVideoLink }, { merge: true });
+//       }
+//     });
+//   });
+// }
 
-        // Обновление или добавление ссылки для соответствующего пользователя в Firestore
-        await usersCollection.doc(userId).set({ thirdVideoLink }, { merge: true });
-      }
-    });
-  });
-}
+// function watchUsersForVideo3RateChange() {
+//   usersCollection.onSnapshot(snapshot => {
+//     snapshot.docChanges().forEach(async change => {
+//       if (change.type === "modified" && change.doc.data().rate !== undefined) {
+//         const userId = change.doc.id;
 
-function watchUsersForVideo4BtoARateChange() {
-  usersCollection.onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(async change => {
-      if (change.type === "modified" && change.doc.data().rate !== undefined) {
-        const userId = change.doc.id;
+//         // Создание маршрута для третьего видео
+//         app.get(`/video3/${userId}`, (req, res) => {
+//           res.sendFile(__dirname + '/video_three.html');
+//         });
 
-        // Создание маршрута для третьего видео
-        app.get(`/video4BA/${userId}`, (req, res) => {
-          res.sendFile(__dirname + '/video_four_B_A.html');
-        });
+//         const thirdVideoLink = `${serverDomain}/video3/${userId}`;
 
-        const videoFourBtoALink = `${serverDomain}/video4BA/${userId}`;
+//         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
+//         await usersCollection.doc(userId).set({ thirdVideoLink }, { merge: true });
+//       }
+//     });
+//   });
+// }
 
-        // Обновление или добавление ссылки для соответствующего пользователя в Firestore
-        await usersCollection.doc(userId).set({ videoFourBtoALink }, { merge: true });
-      }
-    });
-  });
-}
+// function watchUsersForVideo4BtoARateChange() {
+//   usersCollection.onSnapshot(snapshot => {
+//     snapshot.docChanges().forEach(async change => {
+//       if (change.type === "modified" && change.doc.data().rate !== undefined) {
+//         const userId = change.doc.id;
 
-function watchUsersForVideo4BtoPRateChange() {
-  usersCollection.onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(async change => {
-      if (change.type === "modified" && change.doc.data().rate !== undefined) {
-        const userId = change.doc.id;
+//         // Создание маршрута для третьего видео
+//         app.get(`/video4BA/${userId}`, (req, res) => {
+//           res.sendFile(__dirname + '/video_four_B_A.html');
+//         });
 
-        // Создание маршрута для третьего видео
-        app.get(`/video4BP/${userId}`, (req, res) => {
-          res.sendFile(__dirname + '/video_four_B_P.html');
-        });
+//         const videoFourBtoALink = `${serverDomain}/video4BA/${userId}`;
 
-        const videoFourBtoPLink = `${serverDomain}/video4BP/${userId}`;
+//         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
+//         await usersCollection.doc(userId).set({ videoFourBtoALink }, { merge: true });
+//       }
+//     });
+//   });
+// }
 
-        // Обновление или добавление ссылки для соответствующего пользователя в Firestore
-        await usersCollection.doc(userId).set({ videoFourBtoPLink }, { merge: true });
-      }
-    });
-  });
-}
+// function watchUsersForVideo4BtoPRateChange() {
+//   usersCollection.onSnapshot(snapshot => {
+//     snapshot.docChanges().forEach(async change => {
+//       if (change.type === "modified" && change.doc.data().rate !== undefined) {
+//         const userId = change.doc.id;
 
-// Вызов функций
-watchUsersForVideo1RateChange();
-watchUsersForVideo2RateChange();
-watchUsersForVideo3RateChange();
-watchUsersForVideo4BtoARateChange();
-watchUsersForVideo4BtoPRateChange()
+//         // Создание маршрута для третьего видео
+//         app.get(`/video4BP/${userId}`, (req, res) => {
+//           res.sendFile(__dirname + '/video_four_B_P.html');
+//         });
+
+//         const videoFourBtoPLink = `${serverDomain}/video4BP/${userId}`;
+
+//         // Обновление или добавление ссылки для соответствующего пользователя в Firestore
+//         await usersCollection.doc(userId).set({ videoFourBtoPLink }, { merge: true });
+//       }
+//     });
+//   });
+// }
+
+// // Вызов функций
+// watchUsersForVideo1RateChange();
+// watchUsersForVideo2RateChange();
+// watchUsersForVideo3RateChange();
+// watchUsersForVideo4BtoARateChange();
+// watchUsersForVideo4BtoPRateChange()
 
 
 async function updateFirstTestCount(userId) {
